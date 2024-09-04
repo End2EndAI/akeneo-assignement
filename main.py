@@ -13,10 +13,8 @@ MAX_ATTEMPTS = 10000
 
 app = FastAPI()
 
-# Mount the static files (CSS, JS)
 app.mount("/static", StaticFiles(directory="static"), name="static")
 
-# Set up templates
 templates = Jinja2Templates(directory="templates")
 
 @app.get("/", response_class=HTMLResponse)
