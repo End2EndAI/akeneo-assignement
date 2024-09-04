@@ -2,6 +2,8 @@
 
 This project is the assignement for Akeneo. You will find a webapp where you can upload an excel file, with the list of the participants and their blacklist. It will generate a draw for the secret santa.
 
+You can find an example of excel file in `data`.
+
 ## Getting Started
 
 ### Prerequisites
@@ -29,7 +31,7 @@ This project is the assignement for Akeneo. You will find a webapp where you can
 
 You can run the application in two main ways:
 
-1. **Directly with Python:**
+1. **Run with Python locally:**
 
    ```bash
    python main.py
@@ -37,16 +39,14 @@ You can run the application in two main ways:
 
    This will start the FastAPI server, and you can access the API at `http://127.0.0.1:8000`.
 
-2. **Using Docker:**
+2. **Deploy the API Using Docker:**
 
-   If you prefer running the application inside a Docker container, build and run the Docker image using:
+   You can use the Dockerfile from the repo to deploy the API using Docker. 
 
    ```bash
    docker build -t akeneo-app .
    docker run -p 8000:8000 akeneo-app
    ```
-
-   The application will be available at `http://127.0.0.1:8000` inside the Docker container.
 
 ### Testing
 
