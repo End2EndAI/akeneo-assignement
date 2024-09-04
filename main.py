@@ -9,7 +9,7 @@ import traceback
 
 from src.functions import generate_draw, convert_from_df_to_dict
 
-MAX_ATTEMPTS = 100
+MAX_ATTEMPTS = 10000
 
 app = FastAPI()
 
@@ -34,6 +34,9 @@ async def upload_file(file: UploadFile = File(...)):
         dict_ = convert_from_df_to_dict(df)
         
         draw = generate_draw(dict_, MAX_ATTEMPTS)
+        
+        if not draw:
+            return {"filename": file.filename, "html_table": "No valid draw found..."}
 
         draw_df = pd.DataFrame(list(draw.items()), columns=['giver', 'receiver'])
 
@@ -44,7 +47,6 @@ async def upload_file(file: UploadFile = File(...)):
             table_id="data-table"
         )
 
-        # Return the processed data as HTML
         return {"filename": file.filename, "html_table": html_table}
     
     except Exception as e:
