@@ -2,6 +2,8 @@
 
 This project is the assignement for Akeneo. You will find a webapp where you can upload an excel file, with the list of the participants and their blacklist. It will generate a draw for the secret santa.
 
+You can find an example of excel file in `data`.
+
 ## Getting Started
 
 ### Prerequisites
